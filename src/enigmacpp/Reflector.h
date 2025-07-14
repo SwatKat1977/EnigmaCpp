@@ -19,10 +19,21 @@ Copyright 2025 SwatKat1977
 */
 #ifndef REFLECTOR_H_
 #define REFLECTOR_H_
+#include <string>
+#include <vector>
+
 
 namespace enigmacpp {
 
 class Reflector {
+public:
+    Reflector(const std::string& alphabet, const std::string& wiring);
+
+    char Reflect(char input) const;
+
+private:
+    std::string alphabet_;
+    std::vector<int> forwardMap_;
 };
 
 }   // namespace enigmacpp
