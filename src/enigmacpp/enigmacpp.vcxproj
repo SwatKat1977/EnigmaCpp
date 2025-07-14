@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Reflector.cpp" />
     <ClCompile Include="Rotor.cpp" />
     <ClCompile Include="RotorFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Reflector.h" />
     <ClInclude Include="Rotor.h" />
     <ClInclude Include="RotorFactory.h" />
   </ItemGroup>

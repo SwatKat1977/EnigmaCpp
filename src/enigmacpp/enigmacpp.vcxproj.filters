@@ -24,12 +24,18 @@
     <ClCompile Include="RotorFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Reflector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rotor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RotorFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
