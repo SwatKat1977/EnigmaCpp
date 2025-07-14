@@ -1,2 +1,4 @@
+# Visual Studio specific
 *.user
 .vs
+x64
