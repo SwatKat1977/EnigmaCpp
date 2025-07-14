@@ -37,26 +37,53 @@ const char ROTOR_ENIGMA1_II[] = "Enigma1_II";
 // Enigma1 I rotor III : Introduced 1930
 const char ROTOR_ENIGMA1_III[] = "Enigma1_III";
 
+/**
+ * @class RotorFactory
+ * @brief Factory for creating and registering Enigma rotors.
+ */
 class RotorFactory {
-public:
+ public:
+    /**
+     * @brief Constructs a new RotorFactory instance.
+     */
     RotorFactory();
 
+    /**
+     * @brief Creates a rotor instance by name with optional ring and
+     *        start position.
+     * @param name Name of the rotor to create.
+     * @param ringSetting Ring setting character (default 'A').
+     * @param startPosition Start position character (default 'A').
+     * @return A unique_ptr to the created Rotor instance.
+     */
     std::unique_ptr<Rotor> CreateRotor(const std::string& name,
-        char ringSetting = 'A',
-        char startPosition = 'A') const;
+                                       char ringSetting = 'A',
+                                       char startPosition = 'A') const;
 
+    /**
+     * @brief Registers a new rotor definition for later creation.
+     * @param name Name to register the rotor under.
+     * @param alphabet Alphabet the rotor uses.
+     * @param wiring Wiring string defining rotor substitution.
+     * @param notchPositions Positions that trigger stepping of next rotor.
+     */
     void RegisterRotor(const std::string& name,
         const std::string& alphabet,
         const std::string& wiring,
         const std::string& notchPositions);
 
-private:
+ private:
+    /**
+     * @struct RotorDefinition
+     * @brief Holds the properties that define a rotor.
+     */
     struct RotorDefinition {
-        std::string alphabet;
-        std::string wiring;
-        std::string notches;
+        std::string alphabet;     /// The alphabet used by the rotor.
+        std::string wiring;       /// Wiring substitution pattern.
+        std::string notches;      /// Notch positions triggering stepping.
     };
 
+    /// Map of rotor names to definitions.
     std::unordered_map<std::string, RotorDefinition> rotorDefinitions_;
 };
 
