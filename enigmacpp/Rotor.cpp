@@ -21,6 +21,7 @@ Copyright 2025 SwatKat1977
 
 namespace enigmacpp {
 
+
 Rotor::Rotor(const std::string& alphabet,
     const std::string& wiring,
     const std::string& notchChars,
