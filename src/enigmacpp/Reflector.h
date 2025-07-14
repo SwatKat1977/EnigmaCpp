@@ -25,14 +25,39 @@ Copyright 2025 SwatKat1977
 
 namespace enigmacpp {
 
+/**
+ * @class Reflector
+ * @brief Represents the reflector component in the Enigma machine.
+ *
+ * The Reflector performs a fixed, non-reversible character substitution
+ * using an internally defined wiring. It reflects the signal back through
+ * the rotors to ensure symmetric encryption. The wiring must be an involution,
+ * meaning applying it twice yields the original character.
+ */
 class Reflector {
-public:
+ public:
+    /**
+     * @brief Constructs a Reflector with the specified wiring.
+     * @param alphabet The set of valid characters (e.g., "ABCDEFGHIJKLMNOPQRSTUVWXYZ").
+     * @param wiring A permutation of the alphabet defining the reflector's substitution wiring.
+     * @throws std::invalid_argument if the wiring and alphabet differ in length,
+     *         contain invalid characters, or do not form a valid reflector mapping.
+     */
     Reflector(const std::string& alphabet, const std::string& wiring);
 
+    /**
+     * @brief Reflects an input character using the reflector wiring.
+     * @param input The character to reflect.
+     * @return The character mapped by the reflector.
+     * @throws std::invalid_argument if the input character is not in the alphabet.
+     */
     char Reflect(char input) const;
 
-private:
+ private:
+    /// The valid character set used for mapping.
     std::string alphabet_;
+
+    /// Internal forward mapping from character index to reflected index
     std::vector<int> forwardMap_;
 };
 
